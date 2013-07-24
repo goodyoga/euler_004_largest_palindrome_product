@@ -1,4 +1,4 @@
-TARGET := euler_xxx.elf
+TARGET := euler_004.elf
 
 SRC := main.c
 

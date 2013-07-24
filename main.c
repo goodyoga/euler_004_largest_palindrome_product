@@ -9,11 +9,11 @@ char *prog;
 
 int main(int argc, char **argv)
 {
-    int not_exceed = 4000000;
-    int n,n_1 = 2, n_2 = 1;
-    int sum = 0;
+    unsigned long long int number = 600851475143UL;
+    unsigned long long int cur, divider;
     int opt;
-
+    char *p;
+    
     prog = argv[0];
 
     while ( -1 != (opt = getopt(argc, argv, "hn:")) )
@@ -25,14 +25,31 @@ int main(int argc, char **argv)
 	}
         else if ('n' == opt)
 	{
-	    not_exceed = atoi(optarg);
+	    number = strtoull(optarg, &p, 0);
 	}
     }
+    
+    printf("getting largest prime factor of %llu...\n", number);
 
-    while ( 1 )
+    cur = number;
+    divider = 2;
+loop2:
+    if (divider == cur) goto solved;
+    if (0 == (cur % divider))
     {
-        /* solve here */
+         printf("cur / divider: %llu / %llu = %llu\n", cur, divider, cur / divider);
+         cur = cur / divider;
+         goto loop2;
     }
+    else
+    {
+        divider++;
+    }
+    goto loop2;
+
+solved:
+    printf("largest cur: %llu\n", cur);
+
     return EXIT_SUCCESS;
 }
 
@@ -40,13 +57,15 @@ int main(int argc, char **argv)
 
 void usage(void)
 {
-    printf("    http://projecteuler.net/problem=i\n");
-    printf("    [Problem <i>] xxxxxxxx \n");
-    printf("    \n"
-           "    \n"
-           "    \n\n"
+    printf("    http://projecteuler.net/problem=3\n");
+    printf("    [Problem 3] Largest prime factor\n");
+    printf("    A palindromic number reads the same both ways.\n"
+           "    The largest palindrome made from the product of\n\n"
+           "    two 2-digit numbers is 9009 = 91 × 99.\n"
+           "    Find the largest palindrome made from \n"
+           "    the product of two 3-digit numbers.\n\n");
     printf("    -h: show this help\n"
-           "    -n <number>: solve this between 1 and not exceeding <number>\n");
+           "    -n <number>: solve this with <number>\n");
     return;
 }
 
