@@ -9,8 +9,9 @@ char *prog;
 
 int main(int argc, char **argv)
 {
-    unsigned long long int number = 600851475143UL;
-    unsigned long long int cur, divider;
+    unsigned long long int digits = 3UL;
+    unsigned long long int max,min;
+    unsigned long long int l,r, cur;
     int opt;
     char *p;
     
@@ -24,31 +25,18 @@ int main(int argc, char **argv)
             exit(EXIT_SUCCESS);
 	}
         else if ('n' == opt)
-	{
-	    number = strtoull(optarg, &p, 0);
-	}
+        {
+            digits = strtoull(optarg, &p, 0);
+        }
     }
     
-    printf("getting largest prime factor of %llu...\n", number);
+    printf("getting Largest palindrome product in %llu digits...\n", digits);
 
-    cur = number;
-    divider = 2;
-loop2:
-    if (divider == cur) goto solved;
-    if (0 == (cur % divider))
-    {
-         printf("cur / divider: %llu / %llu = %llu\n", cur, divider, cur / divider);
-         cur = cur / divider;
-         goto loop2;
-    }
-    else
-    {
-        divider++;
-    }
-    goto loop2;
+    max = 10 ^ digits -1;
+
 
 solved:
-    printf("largest cur: %llu\n", cur);
+    printf("largest cur: %llu = %llu x %llu\n", cur, l,r);
 
     return EXIT_SUCCESS;
 }
@@ -57,8 +45,8 @@ solved:
 
 void usage(void)
 {
-    printf("    http://projecteuler.net/problem=3\n");
-    printf("    [Problem 3] Largest prime factor\n");
+    printf("    http://projecteuler.net/problem=4\n");
+    printf("    [Problem 4] Largest palindrome product\n");
     printf("    A palindromic number reads the same both ways.\n"
            "    The largest palindrome made from the product of\n\n"
            "    two 2-digit numbers is 9009 = 91 × 99.\n"
