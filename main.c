@@ -40,10 +40,10 @@ int main(int argc, char **argv)
     while ( -1 != (opt = getopt(argc, argv, "ahn:")) )
     {
         if('h' == opt)
-	{
+        {
             usage();
             exit(EXIT_SUCCESS);
-	}
+        }
         else if ('n' == opt)
         {
             max = strtoull(optarg, &p, 0);
