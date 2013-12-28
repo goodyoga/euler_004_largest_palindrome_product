@@ -28,7 +28,6 @@ all: $(SRC)  Makefile
 
 clean: 
 	-rm $(TARGET)
-	-rm *~  main.su
-
+	-rm *~  *.su
 
 

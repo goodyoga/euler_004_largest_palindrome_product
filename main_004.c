@@ -5,12 +5,23 @@
 #include <string.h>   /* strlen  */
 #include <unistd.h>   /* getopt */
 
+/**
+ * @file
+ * @addtogroup EULER_004 Euler_004
+ * @{
+ */
+
 void usage(void);
 char *prog;
 int check(unsigned long long int cur);
 
 #define BUFF_SIZE   128
 
+/**
+ * @brief check() checks if cur is a palindrome.
+ * @param cur a number to check
+ * @return 1:is palindrome, or 0:not
+ */
 int check(unsigned long long int cur)
 {
     char buff[BUFF_SIZE], buff2[BUFF_SIZE];
@@ -85,7 +96,9 @@ int main(int argc, char **argv)
 }
 
 
-
+/**
+ * @brief show help
+ */
 void usage(void)
 {
     printf("    http://projecteuler.net/problem=4\n");
@@ -100,4 +113,7 @@ void usage(void)
     return;
 }
 
+/**
+ * @}
+ */
 
