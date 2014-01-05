@@ -7,15 +7,12 @@
 
 /**
  * @file
- * @addtogroup EULER_004 Euler_004
+ * @addtogroup  EULER_004  Euler_004_largetst_palindrome_product
  * @{
  */
 
 void usage(void);
-char *prog;
 int check(unsigned long long int cur);
-
-#define BUFF_SIZE   128
 
 /**
  * @brief check() checks if cur is a palindrome.
@@ -24,18 +21,27 @@ int check(unsigned long long int cur);
  */
 int check(unsigned long long int cur)
 {
-    char buff[BUFF_SIZE], buff2[BUFF_SIZE];
+#define BUFF_SIZE   128
+	
+    char buff[BUFF_SIZE], reverse[BUFF_SIZE];
     size_t len;
     unsigned int i;
 
     snprintf(buff, BUFF_SIZE, "%llu", cur);
     len = strlen(buff);
     for ( i = 0 ; i < len ; i++ )
-        buff2[i] = buff[len - i - 1];
+        reverse[i] = buff[len - i - 1];
 
-    return (0 == strncmp(buff, buff2, len));
+    return (0 == strncmp(buff, reverse, len));
 }
 
+/**
+ * @brief Largest palindrome product
+ * 
+ * @param argc
+ * @param argv
+ * @return
+ */
 int main(int argc, char **argv)
 {
     unsigned long long int max,min;
@@ -44,7 +50,6 @@ int main(int argc, char **argv)
     int opt, all = 0;
     char *p;
     
-    prog = argv[0];
     max = 999;
     min = 100;
 
