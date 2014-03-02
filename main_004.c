@@ -11,7 +11,7 @@
  * @{
  */
 
-/// @enum enumeration values for default.
+/// @enum GLOBAL_CONST values for default.
 typedef enum {
 	/// max value of the element of palindrome. 
 	DEFAULT_MAX = 999, 
@@ -26,6 +26,26 @@ typedef enum {
 
 
 
+
+/**
+ * @brief check() checks if cur is a palindrome.
+ * 
+ * @param cur a number to check
+ * @return 1 is palindrome
+ * @return 0 is not palindrome
+ * 
+ * @pre none
+ * 
+ * @post none
+ * 
+ * @note 
+ * this function can check max length as set in @ref BUFF_SIZE
+ * @test not ready to test.
+ * 
+ * @bug unknown
+ * 
+ */
+int check(unsigned long long int cur);
 
 
 /**
@@ -64,26 +84,6 @@ int main(int argc, char **argv);
 void usage(void);
 
 
-
-/**
- * @brief check() checks if cur is a palindrome.
- * 
- * @param cur a number to check
- * @return 1 is palindrome
- * @return 0 is not palindrome
- * 
- * @pre none
- * 
- * @post none
- * 
- * @note 
- * this function can check max length as set in @ref BUFF_SIZE
- * @test not ready to test.
- * 
- * @bug unknown
- * 
- */
-int check(unsigned long long int cur);
 
 /**
  * @}
